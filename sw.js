@@ -1,4 +1,4 @@
-const APP_VERSION="1.1.1";
+const APP_VERSION="1.2.0";
 const CACHE=`bidforge-${APP_VERSION}`;
 const CORE=["./","./index.html","./manifest.json","./icon-192.png","./icon-512.png"];
 self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
