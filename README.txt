@@ -1,26 +1,27 @@
-BidForge v1.1.1 Hotfix
-========================
+BIDFORGE v1.2.0
+================
 
-HOTFIX CHANGES
-- Visible app version: v1.1.1
-- Settings > Update App control
-- New versioned service worker cache
-- Network-first app updates to reduce stale GitHub Pages / iPhone PWA caching
-- Item Database sorting by Category or Item Name
-- Category filter and search
-- Category headings in the item database
-- Takeoff item choices grouped by category
-- Assembly component choices grouped by category
-- Preserves existing localStorage key (bidforge.v1) so existing bids/settings should remain on the same hosted URL
+New in v1.2:
+- Named takeoff sections for systems, phases, buildings, floors, alternates, etc.
+- Per-project Lost Time tab with customizable daily labor-loss items.
+- Lost time is converted to a labor factor and automatically increases estimated labor hours/cost.
+- Seed lost-time labels: TRA, Morning Break, Restroom, Lunch, Afternoon Break.
+- Custom Expenses tab for rentals, freight, parking, permits, travel, per diem, subcontractors, disposal, and other job costs.
+- Expenses are added to direct cost; each can optionally be included in the taxable base.
+- Section-by-section summary on Takeoff and Summary screens.
+- CSV export now includes section names, adjusted labor, expenses, and lost-time percentage.
+- Existing v1/v1.1 projects are migrated automatically into a Base Takeoff section.
+- Existing local data key remains bidforge.v1 so prior bids/settings can carry forward.
+- App version/update control remains in Settings.
 
-DEPLOY TO GITHUB PAGES
-1. Back up BidForge from Settings > Export All Data before any update.
-2. Extract this ZIP.
-3. Replace the files at the ROOT of your existing GitHub repository with these files:
-   index.html, sw.js, manifest.json, icon-192.png, icon-512.png
-4. Commit the changes.
-5. Wait for GitHub Pages deployment to finish.
-6. Open BidForge. If the old screen is still shown, go to Settings > Update App.
+UPDATE YOUR GITHUB PAGES SITE
+1. Back up BidForge from Settings > Export All Data.
+2. Unzip this package.
+3. Replace index.html, sw.js, manifest.json, icon-192.png, and icon-512.png at the root of the existing GitHub repository.
+4. Commit the changes and wait for GitHub Pages to deploy.
+5. Open BidForge and use Settings > Update App if the version does not immediately show v1.2.0.
 
-NOTE
-The Update App control clears only BidForge web caches. It does NOT intentionally clear localStorage, where your projects/database are stored. Export backups regularly anyway.
+LOST TIME FORMULA
+Paid workday minutes / productive workday minutes = labor factor.
+Example: 8-hour day (480 min) with 60 min lost = 480 / 420 = 1.142857, or +14.29% labor.
+This factor applies to takeoff labor hours/cost only.
